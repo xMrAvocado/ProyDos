@@ -184,7 +184,7 @@ background-color: rgb(255, 0, 0);</string>
      <string>Salir</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="entDni">
+   <widget class="QLineEdit" name="editDni">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -199,7 +199,7 @@ background-color: rgb(255, 0, 0);</string>
      </font>
     </property>
    </widget>
-   <widget class="QLineEdit" name="entApel">
+   <widget class="QLineEdit" name="editApel">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -214,7 +214,7 @@ background-color: rgb(255, 0, 0);</string>
      </font>
     </property>
    </widget>
-   <widget class="QLineEdit" name="entNome">
+   <widget class="QLineEdit" name="editNome">
     <property name="geometry">
      <rect>
       <x>540</x>
