@@ -1,3 +1,4 @@
+import var
 class Clientes():
     # Clase gestión clientes
     def validarDNI(dni):
@@ -16,5 +17,23 @@ class Clientes():
                 return len(dni == len([n for n in dni if n in numeros])) and tabla[int(dni) % 23] == dig_control
             return False
         except:
+            print('Error en el módulo de validacióndel DNI')
+            return None
+    def validoDni(self):
+        '''Muestra mensaje de DNI válido'''
+        try:
+            dni = var.ui.editDni.text()
+
+            if Clientes.validarDNI(dni):
+                var.ui.lblValidar.setStylesheet('QLabel {color: green;}')
+                var.ui.lblValidar.setText('V')
+                var.ui.editDni.setText(dni.upper())
+            else:
+                var.ui.lblValidar.setStylesheet('QLabel {color: red;}')
+                var.ui.lblValidar.setText('X')
+                var.ui.editDni.setText(dni.upper())
+
+        except:
+
             print('Error en el módulo de validacióndel DNI')
             return None

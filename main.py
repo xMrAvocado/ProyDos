@@ -1,5 +1,5 @@
 from ventana import *
-import sys,var,events
+import sys,var,events,clientes
 
 class Main(QtWidgets.QMainWindow):
 
@@ -15,6 +15,8 @@ class Main(QtWidgets.QMainWindow):
 
         '''Controles del menú var'''
         var.ui.actionSalir.triggered.connect(events.Eventos.Salir)
+
+        var.ui.editDni.editingFinished.connect(clientes.Clientes.validarDNI())
 if __name__=='__main__':
     app = QtWidgets.QApplication([])
     window = Main()
