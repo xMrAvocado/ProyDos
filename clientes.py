@@ -9,7 +9,7 @@ class Clientes():
             numeros = '1234567890'
             dni = dni.upper()
             if len(dni) == 9:
-                dig_conrol = dni[8]
+                dig_control = dni[8]
                 dni = dni[:8]
                 if dni[0] in dig_ext:
                     dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
