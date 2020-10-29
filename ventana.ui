@@ -307,6 +307,58 @@ background-color: rgb(255, 0, 0);</string>
      <string>Masculino</string>
     </property>
    </widget>
+   <widget class="QLabel" name="lblPago">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>200</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Métodos de pago:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkEfec">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>200</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Efectivo</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkTar">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>200</y>
+      <width>70</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Targeta</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkTrans">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>200</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Transferencia</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
