@@ -45,3 +45,13 @@ class Clientes():
                     print('Has elegido masculino')
             except Exception as error:
                 print('Error: %' % str(error))
+        def selPago():
+            try:
+                if var.ui.chkEfec.isChecked():
+                    print('Pagas Efectivo')
+                if var.ui.chkTar.isChecked():
+                    print('Pagas con Targeta')
+                if var.ui.chkTrans.isChecked():
+                    print('Pagas con Transferencia')
+            except Exception as error:
+                print('Error: %' % str(error))

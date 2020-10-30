@@ -10,6 +10,7 @@ class Main(QtWidgets.QMainWindow):
         #Código de conexión de los eventos
 
         var.rbtSex = (var.ui.rbtFem, var.ui.rbtMasc)
+        var.chkPago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
         '''Botones'''
         #var.ui.btnAceptar.clicked.connect(events.Eventos.Saludo)
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
@@ -21,6 +22,8 @@ class Main(QtWidgets.QMainWindow):
 
         for i in var.rbtSex:
             i.toggled.connect(clientes.Clientes.selSexo)
+        for i in var.chkPago:
+            i.stateChanged.connect()
 if __name__=='__main__':
     app = QtWidgets.QApplication([])
     window = Main()
