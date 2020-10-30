@@ -19,3 +19,15 @@ class Eventos():
             '''setText es para que escriba algo
 
             getText es para recoger lo que he escrito'''
+
+    def cargarProv():
+        """
+        carga las provincias al iniciar el programa
+        :return:
+        """
+        try:
+            prov = ['','A Coruña','Lugo','Ourense','Pontevedra']
+            for i in prov:
+                var.ui.cmbProv.addItem(i)
+        except Exception as error:
+            print('Error: %' % str(error))

@@ -24,6 +24,13 @@ class Main(QtWidgets.QMainWindow):
             i.toggled.connect(clientes.Clientes.selSexo)
         for i in var.chkPago:
             i.stateChanged.connect()
+        var.ui.cmbProv.activated[str].connect(clientes.Clientes.selProv)
+        '''
+        Llamada a módulos iniciales
+        '''
+        events.Eventos.cargarProv()
+
+
 if __name__=='__main__':
     app = QtWidgets.QApplication([])
     window = Main()

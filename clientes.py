@@ -55,3 +55,10 @@ class Clientes():
                     print('Pagas con Transferencia')
             except Exception as error:
                 print('Error: %' % str(error))
+
+        def selProv(prov):
+            try:
+                print('Has seleccionado la provincia de ', prov)
+                return prov
+            except Exception as error:
+                print('Error: %' % str(error))
