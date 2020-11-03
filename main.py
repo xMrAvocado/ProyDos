@@ -11,8 +11,11 @@ class Main(QtWidgets.QMainWindow):
 
         var.rbtSex = (var.ui.rbtFem, var.ui.rbtMasc)
         var.chkPago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
+        var.avisosalir = DialogSalir()
+        var.
         '''Botones'''
         #var.ui.btnAceptar.clicked.connect(events.Eventos.Saludo)
+        QtWidgets.QAction(self).triggered()
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
 
         '''Controles del menú var'''
@@ -30,9 +33,11 @@ class Main(QtWidgets.QMainWindow):
         '''
         events.Eventos.cargarProv()
 
-
+    def closeEvent(self, event):
+        events.Eventos.Salir()
 if __name__=='__main__':
     app = QtWidgets.QApplication([])
     window = Main()
     window.show()
     sys.exit(app.exec())
+

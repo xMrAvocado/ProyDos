@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Desea salir?</string>
   </property>
-  <widget class="QDialogButtonBox" name="btnBox">
+  <widget class="QDialogButtonBox" name="btnBoxSalir">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -75,7 +75,7 @@
  </resources>
  <connections>
   <connection>
-   <sender>btnBox</sender>
+   <sender>btnBoxSalir</sender>
    <signal>accepted()</signal>
    <receiver>venSalir</receiver>
    <slot>accept()</slot>
@@ -91,7 +91,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>btnBox</sender>
+   <sender>btnBoxSalir</sender>
    <signal>rejected()</signal>
    <receiver>venSalir</receiver>
    <slot>reject()</slot>
