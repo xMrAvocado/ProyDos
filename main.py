@@ -1,6 +1,9 @@
 from ventana import *
-import sys,var,events,clientes
+import sys,var,events,clientes,avisosalir
 
+
+class DialogCalendar(QtWidgets.QDialog):
+    def
 class Main(QtWidgets.QMainWindow):
 
     def __init__(self):
@@ -11,8 +14,8 @@ class Main(QtWidgets.QMainWindow):
 
         var.rbtSex = (var.ui.rbtFem, var.ui.rbtMasc)
         var.chkPago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
-        var.avisosalir = DialogSalir()
-        var.
+        var.dlgSalir = DialogSalir()
+        var.dlgCAlendar = DialogCalendar()
         '''Botones'''
         #var.ui.btnAceptar.clicked.connect(events.Eventos.Saludo)
         QtWidgets.QAction(self).triggered()

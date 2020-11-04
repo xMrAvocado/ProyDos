@@ -455,7 +455,7 @@ background-color: rgb(255, 0, 0);</string>
    <widget class="QLabel" name="lblClialta">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>360</x>
       <y>120</y>
       <width>111</width>
       <height>20</height>
@@ -490,7 +490,7 @@ background-color: rgb(255, 0, 0);</string>
    <widget class="QLineEdit" name="editClialta">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>480</x>
       <y>120</y>
       <width>161</width>
       <height>20</height>
@@ -502,10 +502,10 @@ background-color: rgb(255, 0, 0);</string>
      </font>
     </property>
    </widget>
-   <widget class="QLabel" name="labelCalendar">
+   <widget class="QPushButton" name="btnCalendar">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>670</x>
       <y>120</y>
       <width>31</width>
       <height>31</height>
@@ -514,8 +514,15 @@ background-color: rgb(255, 0, 0);</string>
     <property name="text">
      <string/>
     </property>
-    <property name="pixmap">
-     <pixmap resource="img/calendar.qrc">:/newPrefix/calendar.png</pixmap>
+    <property name="icon">
+     <iconset>
+      <normaloff>img/calendar.png</normaloff>img/calendar.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
     </property>
    </widget>
   </widget>
