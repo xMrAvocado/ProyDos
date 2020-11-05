@@ -1,46 +1,75 @@
 from ventana import *
-import sys,var,events,clientes,avisosalir
+from vensalir import *
+from vencalendar import *
+from datetime import datetime
+import sys, var, events, clients
 
+class DialogSalir(QtWidgets.QDialog):
+    def __init__(self):
+        super(DialogSalir, self).__init__()
+        var.dlgsalir = Ui_dlgSalir()
+        var.dlgsalir.setupUi(self)
+        var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.Yes).clicked.connect(events.Eventos.Salir)
+        #var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.No).clicked.connect(events.Eventos.closeSalir)
+        #no es neceasario no quiero que haga nada
 
 class DialogCalendar(QtWidgets.QDialog):
-    def
-class Main(QtWidgets.QMainWindow):
+    def __init__(self):
+        super(DialogCalendar, self).__init__()
+        var.dlgcalendar = Ui_dlgCalendar()
+        var.dlgcalendar.setupUi(self)
+        diaactual = datetime.now().day
+        mesactual = datetime.now().month
+        anoactual = datetime.now().year
+        var.dlgcalendar.Calendar.setSelectedDate((QtCore.QDate(anoactual,mesactual,diaactual)))
+        var.dlgcalendar.Calendar.clicked.connect(clients.Clientes.cargarFecha)
 
+class Main(QtWidgets.QMainWindow):
     def __init__(self):
         super(Main, self).__init__()
         var.ui = Ui_venPrincipal()
         var.ui.setupUi(self)
-        #Código de conexión de los eventos
+        var.dlgsalir = DialogSalir()
+        var.dlgcalendar = DialogCalendar()
 
-        var.rbtSex = (var.ui.rbtFem, var.ui.rbtMasc)
-        var.chkPago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
-        var.dlgSalir = DialogSalir()
-        var.dlgCAlendar = DialogCalendar()
-        '''Botones'''
-        #var.ui.btnAceptar.clicked.connect(events.Eventos.Saludo)
-        QtWidgets.QAction(self).triggered()
+        '''
+        colección de datos
+        '''
+        var.rbtsex = (var.ui.rbtFem, var.ui.rbtMasc)
+        var.chkpago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
+
+        '''
+        conexion de eventos con los objetos
+        estamos conectando el código con la interfaz gráfico
+        '''
+
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
-
-        '''Controles del menú var'''
         var.ui.actionSalir.triggered.connect(events.Eventos.Salir)
+        var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
+        var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
+        for i in var.rbtsex:
+            i.toggled.connect(clients.Clientes.selSexo)
+        for i in var.chkpago:
+            i.stateChanged.connect(clients.Clientes.selPago)
+        var.ui.cmbProv.activated[str].connect(clients.Clientes.selProv)
 
-        var.ui.editDni.editingFinished.connect(clientes.Clientes.validarDNI())
-
-        for i in var.rbtSex:
-            i.toggled.connect(clientes.Clientes.selSexo)
-        for i in var.chkPago:
-            i.stateChanged.connect()
-        var.ui.cmbProv.activated[str].connect(clientes.Clientes.selProv)
         '''
         Llamada a módulos iniciales
         '''
         events.Eventos.cargarProv()
 
+        '''
+        módulos del principal
+        '''
+
     def closeEvent(self, event):
-        events.Eventos.Salir()
-if __name__=='__main__':
+        if event:
+            events.Eventos.Salir(event)
+
+
+
+if __name__ == '__main__':
     app = QtWidgets.QApplication([])
     window = Main()
-    window.show()
+    window.showFullScreen()
     sys.exit(app.exec())
-

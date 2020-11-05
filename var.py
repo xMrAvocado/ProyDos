@@ -1,4 +1,5 @@
 global ui
-global rbtSex
-global chkPago
-global DialogSalir
+global rbtsex
+global chkpago
+global dlgsalir
+global dlgcalendar
