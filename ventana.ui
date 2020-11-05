@@ -17,17 +17,19 @@
    <widget class="QLabel" name="lblXexCli">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>230</x>
       <y>10</y>
-      <width>171</width>
-      <height>21</height>
+      <width>231</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <family>Verdana</family>
+      <pointsize>15</pointsize>
       <weight>75</weight>
       <bold>true</bold>
+      <underline>true</underline>
      </font>
     </property>
     <property name="styleSheet">
@@ -40,23 +42,10 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>40</y>
-      <width>601</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="lblDNI">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>70</x>
       <y>70</y>
       <width>41</width>
       <height>16</height>
@@ -64,7 +53,8 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -77,10 +67,16 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>190</y>
-      <width>611</width>
+      <y>200</y>
+      <width>621</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -89,25 +85,32 @@
    <widget class="QLineEdit" name="editDni">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>110</x>
       <y>70</y>
       <width>141</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QLabel" name="lblApel">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>100</y>
-      <width>81</width>
+      <width>91</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -119,50 +122,73 @@
    <widget class="QLineEdit" name="editApel">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>110</x>
       <y>100</y>
       <width>251</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
    <widget class="QLabel" name="lblNome">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>400</x>
       <y>100</y>
-      <width>61</width>
+      <width>71</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Nombre: </string>
+     <string>NOMBRE:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="editNome">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>100</y>
       <width>151</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="btnAceptar">
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>220</y>
+      <y>230</y>
       <width>71</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Aceptar</string>
@@ -172,10 +198,16 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>220</y>
+      <y>230</y>
       <width>71</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Salir</string>
@@ -192,8 +224,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Comic Sans MS</family>
-      <pointsize>14</pointsize>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <italic>true</italic>
       <bold>true</bold>
@@ -207,13 +239,15 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>170</y>
+      <y>180</y>
       <width>41</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -226,10 +260,16 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>170</y>
-      <width>71</width>
+      <y>180</y>
+      <width>81</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Femenino</string>
@@ -239,10 +279,16 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>170</y>
-      <width>71</width>
+      <y>180</y>
+      <width>81</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Masculino</string>
@@ -252,13 +298,15 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>170</y>
-      <width>111</width>
+      <y>180</y>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -271,10 +319,16 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>170</y>
+      <y>180</y>
       <width>70</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Efectivo</string>
@@ -284,10 +338,16 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>170</y>
+      <y>180</y>
       <width>70</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Tarjeta</string>
@@ -297,10 +357,16 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>170</y>
-      <width>91</width>
+      <y>180</y>
+      <width>101</width>
       <height>17</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>8</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Transferencia</string>
@@ -311,12 +377,14 @@
      <rect>
       <x>20</x>
       <y>130</y>
-      <width>71</width>
+      <width>91</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -328,79 +396,107 @@
    <widget class="QLineEdit" name="editDir">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>110</x>
       <y>130</y>
       <width>251</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QLabel" name="lblProv">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>380</x>
       <y>130</y>
-      <width>61</width>
+      <width>91</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Provincia:</string>
+     <string>PROVINCIA:</string>
     </property>
    </widget>
    <widget class="QComboBox" name="cmbProv">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>130</y>
       <width>181</width>
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QLabel" name="lblClialta">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>70</y>
-      <width>81</width>
-      <height>16</height>
+      <width>111</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Fecha de Alta:</string>
+     <string>FECHA DE ALTA:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="editClialta">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>470</x>
       <y>70</y>
-      <width>91</width>
+      <width>111</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="btnCalendar">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>590</x>
       <y>60</y>
       <width>31</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string/>
