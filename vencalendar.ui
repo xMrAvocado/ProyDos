@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>423</width>
-    <height>301</height>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="dlgCalendar">
    <widget class="QCalendarWidget" name="Calendar">
     <property name="geometry">
      <rect>
