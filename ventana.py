@@ -102,7 +102,7 @@ class Ui_venPrincipal(object):
         self.btnSalir.setFont(font)
         self.btnSalir.setObjectName("btnSalir")
         self.lblValidar = QtWidgets.QLabel(self.centralwidget)
-        self.lblValidar.setGeometry(QtCore.QRect(240, 70, 47, 21))
+        self.lblValidar.setGeometry(QtCore.QRect(260, 70, 47, 21))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(9)
