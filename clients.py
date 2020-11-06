@@ -114,7 +114,7 @@ class Clientes():
             for i in client:
                 newcli.append(i.text()) #Cargamos los valores que hay en los editline
                 if k < 3:
-                    clitab.append(i.text)
+                    clitab.append(i.text())
                     k += 1
             newcli.append(vpro)
             #Elimina duplicados
@@ -127,10 +127,10 @@ class Clientes():
             #Aquí empieza a trabajar con la TableWidget
             row = 0
             column = 0
-            var.ui.cliTab.insertRow(row)
+            var.ui.tableCli.insertRow(row)
             for registro in clitab:
                 cell = QtWidgets.QTableWidgetItem(registro)
-                var.ui.cliTab.setItem(row, column, cell)
+                var.ui.tableCli.setItem(row, column, cell)
                 column += 1
 
         except Exception as error:
