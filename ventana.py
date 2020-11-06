@@ -245,7 +245,7 @@ class Ui_venPrincipal(object):
 
     def retranslateUi(self, venPrincipal):
         _translate = QtCore.QCoreApplication.translate
-        venPrincipal.setWindowTitle(_translate("venPrincipal", "Proyecto Uno"))
+        venPrincipal.setWindowTitle(_translate("venPrincipal", "Proyecto Dos"))
         self.lblXexCli.setText(_translate("venPrincipal", "XESTIÓN CLIENTES"))
         self.lblDNI.setText(_translate("venPrincipal", "DNI: "))
         self.lblApel.setText(_translate("venPrincipal", "APELLIDOS: "))
