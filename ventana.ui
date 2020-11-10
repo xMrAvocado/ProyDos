@@ -274,6 +274,9 @@
     <property name="text">
      <string>Femenino</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">grpbtnSex</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="rbtMasc">
     <property name="geometry">
@@ -293,6 +296,9 @@
     <property name="text">
      <string>Masculino</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">grpbtnSex</string>
+    </attribute>
    </widget>
    <widget class="QLabel" name="lblPago">
     <property name="geometry">
@@ -655,4 +661,7 @@
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="grpbtnSex"/>
+ </buttongroups>
 </ui>
