@@ -34,7 +34,7 @@ class Eventos():
         :return:
         """
         try:
-            prov = ['','A Coruña', 'Lugo', 'Ourense', 'Pontevedra']
+            prov = ['','A Coruña', 'Lugo', 'Ourense', 'Pontevedra', 'Vigo']
             for i in prov:
                 var.ui.cmbProv.addItem(i)
 

@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets
-
 import var
-
+from ventana import *
 
 class Clientes():
     '''
@@ -32,7 +31,7 @@ class Clientes():
     def validoDni():
         '''
         muestra mensaje de dni válido
-        :return:
+        :return: none
         '''
         try:
             dni = var.ui.editDni.text()
@@ -52,7 +51,7 @@ class Clientes():
     def selSexo():
         try:
             if var.ui.rbtFem.isChecked():
-                var.sex = 'Mujer'
+                var.sex =  'Mujer'
             if var.ui.rbtMasc.isChecked():
                 var.sex = 'Hombre'
         except Exception as error:
@@ -63,17 +62,16 @@ class Clientes():
             if var.ui.chkEfec.isChecked():
                 var.pay.append('Efectivo')
             if var.ui.chkTar.isChecked():
-                var.pay.append('Targeta')
+                var.pay.append('Tarjeta')
             if var.ui.chkTrans.isChecked():
                 var.pay.append('Transferencia')
-
         except Exception as error:
             print('Error: %s' % str(error))
 
     def selProv(prov):
         try:
             global vpro
-            vpr = prov
+            vpro = prov
         except Exception as error:
             print('Error: %s' % str(error))
 
@@ -98,43 +96,74 @@ class Clientes():
         except Exception as error:
             print('Error cargar fecha: %s ' % str(error))
 
-
-
-    def showClientes(self):
+    def showClientes():
         '''
-        Cargará los clientes en la tabla
-        :return:
+        cargará los clientes en la tabla
+        :return: none
         '''
+        #preparamos el registro
         try:
-            #Preparamos el registro
             newcli = []
-            clitab = [] #Será lo que carguemos en la tabla
-            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editDir, var.ui.editClialta]
+            clitab = []  #será lo que carguemos en la tablas
+            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editDir, var.ui.editClialta ]
             k = 0
             for i in client:
-                newcli.append(i.text()) #Cargamos los valores que hay en los editline
+                newcli.append(i.text())  #cargamos los valores que hay en los editline
                 if k < 3:
                     clitab.append(i.text())
                     k += 1
             newcli.append(vpro)
-            #Elimina duplicados
-            var.pay = set(var.pay)
+            var.pay = set(var.pay)    #eliminia duplicados
             for j in var.pay:
                 newcli.append(j)
             newcli.append(var.sex)
-            print(newcli)
-            print(clitab)
-            #Aquí empieza a trabajar con la TableWidget
+            #aquí empieza como trabajar con la TableWidget
             row = 0
             column = 0
             var.ui.tableCli.insertRow(row)
             for registro in clitab:
                 cell = QtWidgets.QTableWidgetItem(registro)
                 var.ui.tableCli.setItem(row, column, cell)
-                column += 1
-
+                column +=1
+            Clientes.limpiarCli(client, var.rbtsex, var.chkpago)
         except Exception as error:
-            print('Error: %s' % str(error))
+            print('Error cargar fecha: %s ' % str(error))
+
+    def limpiarCli(listaeditCli, listaRbtsex, listaChkpay):
+        '''
+        limpia los datos del formulario cliente
+        :param listaRbtsex:
+        :param listaChkpay:
+        :return: none
+        '''
+        try:
+            for i in range(len(listaeditCli)):
+                listaeditCli[i].setText('')
+            var.ui.grpbtnSex.setExclusive(False) #necesario para los radiobutton
+            for dato in listaRbtsex:
+                dato.setChecked(False)
+            for data in listaChkpay:
+                data.setChecked(False)
+            var.ui.cmbProv.setCurrentIndex(0)
+            var.ui.lblValidar.setText('')
+        except Exception as error:
+            print('Error cargar fecha: %s ' % str(error))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
