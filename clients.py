@@ -1,10 +1,9 @@
-from PyQt5 import QtWidgets
-import var
+import var, conexion
 from ventana import *
 
 class Clientes():
     '''
-    eventos clientes
+    eventos necesarios formulario clientes
     '''
     def validarDni(dni):
         '''
@@ -48,7 +47,7 @@ class Clientes():
             print('Error módulo escribir valido DNI')
             return None
 
-    def selSexo():
+    def selSexo(self):
         try:
             if var.ui.rbtFem.isChecked():
                 var.sex =  'Mujer'
@@ -59,14 +58,22 @@ class Clientes():
 
     def selPago():
         try:
-            if var.ui.chkEfec.isChecked():
-                var.pay.append('Efectivo')
-            if var.ui.chkTar.isChecked():
-                var.pay.append('Tarjeta')
-            if var.ui.chkTrans.isChecked():
-                var.pay.append('Transferencia')
+            var.pay = []
+            for i, data in enumerate(var.ui.grpbtnPay.buttons()):
+                    #agrupamos en QtDesigner los checkbox en un ButtonGroup
+                if data.isChecked() and i == 0:
+                   var.pay.append('Efectivo')
+                if data.isChecked() and i == 1:
+                   var.pay.append('Tarjeta')
+                if data.isChecked() and i == 2:
+                   var.pay.append('Transferencia')
+            #var.pay = set(var.pay)
+            print('hola')
+            print(var.pay)
+            return var.pay
         except Exception as error:
             print('Error: %s' % str(error))
+
 
     def selProv(prov):
         try:
@@ -75,20 +82,20 @@ class Clientes():
         except Exception as error:
             print('Error: %s' % str(error))
 
-    '''
-    Abrir la ventana calendario
-    '''
-    def abrirCalendar():
+
+    def abrirCalendar(self):
+        '''
+        Abrir la ventana calendario
+        '''
         try:
             var.dlgcalendar.show()
         except Exception as error:
             print('Error: %s ' % str(error))
 
-    '''
-    Este módulo se ejecuta cuando clickeamos en un día del calendar, es decir, clicked.connect de calendar
-    '''
-
     def cargarFecha(qDate):
+        ''''
+        Este módulo se ejecuta cuando clickeamos en un día del calendar, es decir, clicked.connect de calendar
+        '''
         try:
             data = ('{0}/{1}/{2}'.format(qDate.day(), qDate.month(), qDate.year()))
             var.ui.editClialta.setText(str(data))
@@ -96,16 +103,18 @@ class Clientes():
         except Exception as error:
             print('Error cargar fecha: %s ' % str(error))
 
-    def showClientes():
+    def altaCliente(self):  #SE EJECUTA CON EL BOTÓN ACEPTAR
         '''
-        cargará los clientes en la tabla
+        cargará los clientes en la tabla y en la base de datos
+        cargará datos cliente en el resto widgets
+        en las búsquedas mostrará los datos del cliente
         :return: none
         '''
         #preparamos el registro
         try:
-            newcli = []
+            newcli = [] #contiene todos los datos
             clitab = []  #será lo que carguemos en la tablas
-            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editDir, var.ui.editClialta ]
+            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
             k = 0
             for i in client:
                 newcli.append(i.text())  #cargamos los valores que hay en los editline
@@ -113,41 +122,102 @@ class Clientes():
                     clitab.append(i.text())
                     k += 1
             newcli.append(vpro)
-            var.pay = set(var.pay)    #eliminia duplicados
-            for j in var.pay:
-                newcli.append(j)
             newcli.append(var.sex)
+            var.pay2 = Clientes.selPago()
+            newcli.append(var.pay2)
+            if client:
+            #comprobarmos que no esté vacío lo principal
             #aquí empieza como trabajar con la TableWidget
-            row = 0
-            column = 0
-            var.ui.tableCli.insertRow(row)
-            for registro in clitab:
-                cell = QtWidgets.QTableWidgetItem(registro)
-                var.ui.tableCli.setItem(row, column, cell)
-                column +=1
-            Clientes.limpiarCli(client, var.rbtsex, var.chkpago)
+                row = 0
+                column = 0
+                var.ui.tableCli.insertRow(row)
+                for registro in clitab:
+                    cell = QtWidgets.QTableWidgetItem(registro)
+                    var.ui.tableCli.setItem(row, column, cell)
+                    column +=1
+                conexion.Conexion.altaCli(newcli)
+            else:
+                print('Faltan Datos')
+            #Clientes.limpiarCli()
         except Exception as error:
-            print('Error cargar fecha: %s ' % str(error))
+            print('Error cargar fecha lo : %s ' % str(error))
 
-    def limpiarCli(listaeditCli, listaRbtsex, listaChkpay):
+    def limpiarCli():
         '''
         limpia los datos del formulario cliente
-        :param listaRbtsex:
-        :param listaChkpay:
         :return: none
         '''
         try:
-            for i in range(len(listaeditCli)):
-                listaeditCli[i].setText('')
-            var.ui.grpbtnSex.setExclusive(False) #necesario para los radiobutton
-            for dato in listaRbtsex:
+            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
+            for i in range(len(client)):
+                client[i].setText('')
+            var.ui.grpbtnSex.setExclusive(False)  #necesario para los radiobutton
+            for dato in var.rbtsex:
                 dato.setChecked(False)
-            for data in listaChkpay:
+            for data in var.chkpago:
                 data.setChecked(False)
             var.ui.cmbProv.setCurrentIndex(0)
             var.ui.lblValidar.setText('')
+            var.ui.lblCodcli.setText('')
         except Exception as error:
-            print('Error cargar fecha: %s ' % str(error))
+            print('Error limpiar widgets: %s ' % str(error))
+
+    def cargarCli():
+        '''
+        carga en widgets formulario cliente los datos
+        elegidos en la tabla
+        :return: none
+        '''
+        try:
+            fila = var.ui.tableCli.selectedItems()
+            client = [ var.ui.editDni, var.ui.editApel, var.ui.editNome ]
+            if fila:
+                fila = [dato.text() for dato in fila]
+            i = 0
+            for i, dato in enumerate(client):
+                dato.setText(fila[i])
+            conexion.Conexion.cargarCliente()
+        except Exception as error:
+            print('Error cargar clientes: %s ' % str(error))
+
+    def bajaCliente(self):
+        '''
+        módulos para dar de baja un cliente
+        :return:
+        '''
+        try:
+            dni = var.ui.editDni.text()
+            conexion.Conexion.bajaCli(dni)
+            conexion.Conexion.mostrarClientes(self)
+            Clientes.limpiarCli()
+
+        except Exception as error:
+            print('Error cargar clientes: %s ' % str(error))
+
+
+    def modifCliente(self):
+        '''
+        módulos para dar de modificar datos de un cliente
+        :return:
+        '''
+        try:
+            newdata = []
+            client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
+            for i in client:
+                newdata.append(i.text())  # cargamos los valores que hay en los editline
+            newdata.append(var.ui.cmbProv.currentText())
+            newdata.append(var.sex)
+            var.pay = Clientes.selPago()
+            print(var.pay)
+            newdata.append(var.pay)
+            cod = var.ui.lblCodcli.text()
+            conexion.Conexion.modifCli(cod, newdata)
+            conexion.Conexion.mostrarClientes(self)
+
+        except Exception as error:
+            print('Error cargar clientes: %s ' % str(error))
+
+
 
 
 
