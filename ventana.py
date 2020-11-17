@@ -123,10 +123,6 @@ class Ui_venPrincipal(object):
         self.grpbtnPay.setObjectName("grpbtnPay")
         self.grpbtnPay.setExclusive(False)
         self.grpbtnPay.addButton(self.chkEfec)
-        self.chkTar = QtWidgets.QCheckBox(self.panelCli)
-        self.chkTar.setObjectName("chkTar")
-        self.grpbtnPay.addButton(self.chkTar)
-        self.gridFormabajo.addWidget(self.chkTar, 0, 6, 1, 1)
         self.gridFormabajo.addWidget(self.chkEfec, 0, 5, 1, 1)
         self.chkTrans = QtWidgets.QCheckBox(self.panelCli)
         self.chkTrans.setObjectName("chkTrans")
@@ -145,8 +141,10 @@ class Ui_venPrincipal(object):
         self.grpbtnSex.setObjectName("grpbtnSex")
         self.grpbtnSex.addButton(self.rbtMasc)
         self.gridFormabajo.addWidget(self.rbtMasc, 0, 2, 1, 1)
-
-
+        self.chkTar = QtWidgets.QCheckBox(self.panelCli)
+        self.chkTar.setObjectName("chkTar")
+        self.grpbtnPay.addButton(self.chkTar)
+        self.gridFormabajo.addWidget(self.chkTar, 0, 6, 1, 1)
         spacerItem4 = QtWidgets.QSpacerItem(310, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridFormabajo.addItem(spacerItem4, 0, 3, 1, 1)
         self.lblSexo = QtWidgets.QLabel(self.panelCli)
@@ -490,7 +488,7 @@ class Ui_venPrincipal(object):
 
     def retranslateUi(self, venPrincipal):
         _translate = QtCore.QCoreApplication.translate
-        venPrincipal.setWindowTitle(_translate("venPrincipal", "Proyecto Uno"))
+        venPrincipal.setWindowTitle(_translate("venPrincipal", "Proyecto Dos"))
         self.label_2.setText(_translate("venPrincipal", "<html><head/><body><p><img src=\":/newPrefix/logo.jpg\"/></p></body></html>"))
         self.lblDir.setText(_translate("venPrincipal", "Dirección: "))
         self.lblProv.setText(_translate("venPrincipal", "Provincia:"))
