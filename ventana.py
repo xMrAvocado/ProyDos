@@ -421,7 +421,7 @@ class Ui_venPrincipal(object):
         self.pushButton_2.setSizePolicy(sizePolicy)
         self.pushButton_2.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("img/lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("img/Lupa.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_2.setIcon(icon2)
         self.pushButton_2.setIconSize(QtCore.QSize(24, 24))
         self.pushButton_2.setObjectName("pushButton_2")
