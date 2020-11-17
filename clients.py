@@ -207,19 +207,15 @@ class Clientes():
                 newdata.append(i.text())  # cargamos los valores que hay en los editline
             newdata.append(var.ui.cmbProv.currentText())
             newdata.append(var.sex)
-            var.pay = Clientes.selPago()
+            pagos = Clientes.selPago()
             print(var.pay)
-            newdata.append(var.pay)
+            newdata.append(pagos)
             cod = var.ui.lblCodcli.text()
             conexion.Conexion.modifCli(cod, newdata)
             conexion.Conexion.mostrarClientes(self)
 
         except Exception as error:
             print('Error cargar clientes: %s ' % str(error))
-
-
-
-
 
 
 
