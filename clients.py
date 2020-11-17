@@ -208,7 +208,6 @@ class Clientes():
             newdata.append(var.ui.cmbProv.currentText())
             newdata.append(var.sex)
             pagos = Clientes.selPago()
-            print(var.pay)
             newdata.append(pagos)
             cod = var.ui.lblCodcli.text()
             conexion.Conexion.modifCli(cod, newdata)
