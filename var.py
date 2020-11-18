@@ -1,10 +1,15 @@
 global ui
-#a continuación listas de los rbtbutton y check pago
+
+#Listas de los rbtbutton y check pago
 global rbtsex
 global chkpago
-#las dos siguientes son ventanas dialogo
+
+
+#Ventanas dialogo
 global dlgsalir
 global dlgcalendar
+
+
 global sex
 pay = []
 filebd = 'empresa.db'
