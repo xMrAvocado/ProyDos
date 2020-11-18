@@ -60,7 +60,7 @@ class Clientes():
         try:
             var.pay = []
             for i, data in enumerate(var.ui.grpbtnPay.buttons()):
-                    #agrupamos en QtDesigner los checkbox en un ButtonGroup
+                    #Agrupamos en QtDesigner los checkbox en un ButtonGroup
                 if data.isChecked() and i == 0:
                    var.pay.append('Efectivo')
                 if data.isChecked() and i == 1:
@@ -110,14 +110,14 @@ class Clientes():
         En las búsquedas mostrará los datos del cliente
         :return: none
         '''
-        #preparamos el registro
+        #Preparamos el registro
         try:
-            newcli = [] #contiene todos los datos
-            clitab = []  #será lo que carguemos en la tablas
+            newcli = [] #Contiene todos los datos
+            clitab = []  #Será lo que carguemos en la tablas
             client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
             k = 0
             for i in client:
-                newcli.append(i.text())  #cargamos los valores que hay en los editline
+                newcli.append(i.text())  #Cargamos los valores que hay en los editline
                 if k < 3:
                     clitab.append(i.text())
                     k += 1
@@ -126,8 +126,8 @@ class Clientes():
             var.pay2 = Clientes.selPago()
             newcli.append(var.pay2)
             if client:
-            #comprobarmos que no esté vacío lo principal
-            #aquí empieza como trabajar con la TableWidget
+            #Comprobarmos que no esté vacío lo principal
+            #Aquí empieza como trabajar con la TableWidget
                 row = 0
                 column = 0
                 var.ui.tableCli.insertRow(row)
@@ -151,7 +151,7 @@ class Clientes():
             client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
             for i in range(len(client)):
                 client[i].setText('')
-            var.ui.grpbtnSex.setExclusive(False)  #necesario para los radiobutton
+            var.ui.grpbtnSex.setExclusive(False)  #Necesario para los radiobutton
             for dato in var.rbtsex:
                 dato.setChecked(False)
             for data in var.chkpago:
@@ -204,7 +204,7 @@ class Clientes():
             newdata = []
             client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
             for i in client:
-                newdata.append(i.text())  # cargamos los valores que hay en los editline
+                newdata.append(i.text())  # Cargamos los valores que hay en los editline
             newdata.append(var.ui.cmbProv.currentText())
             newdata.append(var.sex)
             pagos = Clientes.selPago()

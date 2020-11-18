@@ -24,7 +24,7 @@ class Eventos():
             if var.dlgsalir.exec_():
                 print(event)
                 var.dlgsalir.hide()
-               #necesario para que ignore X de la ventana
+               #Necesario para que ignore X de la ventana
         except Exception as error:
             print('Error %s' % str(error))
 
