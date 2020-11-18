@@ -3,7 +3,7 @@ from ventana import *
 
 class Clientes():
     '''
-    eventos necesarios formulario clientes
+    EVENTOS NECESARIOS FORMULARIO CLIENTES
     '''
     def validarDni(dni):
         '''
@@ -29,7 +29,7 @@ class Clientes():
 
     def validoDni():
         '''
-        muestra mensaje de dni válido
+        Muestra mensaje de dni válido
         :return: none
         '''
         try:
@@ -105,9 +105,9 @@ class Clientes():
 
     def altaCliente(self):  #SE EJECUTA CON EL BOTÓN ACEPTAR
         '''
-        cargará los clientes en la tabla y en la base de datos
-        cargará datos cliente en el resto widgets
-        en las búsquedas mostrará los datos del cliente
+        Cargará los clientes en la tabla y en la base de datos
+        Cargará datos cliente en el resto widgets
+        En las búsquedas mostrará los datos del cliente
         :return: none
         '''
         #preparamos el registro
@@ -144,7 +144,7 @@ class Clientes():
 
     def limpiarCli():
         '''
-        limpia los datos del formulario cliente
+        Limpia los datos del formulario cliente
         :return: none
         '''
         try:
@@ -164,8 +164,8 @@ class Clientes():
 
     def cargarCli():
         '''
-        carga en widgets formulario cliente los datos
-        elegidos en la tabla
+        Carga en widgets formulario cliente los datos
+        Elegidos en la tabla
         :return: none
         '''
         try:
@@ -182,7 +182,7 @@ class Clientes():
 
     def bajaCliente(self):
         '''
-        módulos para dar de baja un cliente
+        Módulos para dar de baja un cliente
         :return:
         '''
         try:
@@ -197,7 +197,7 @@ class Clientes():
 
     def modifCliente(self):
         '''
-        módulos para dar de modificar datos de un cliente
+        Módulos para dar de modificar datos de un cliente
         :return:
         '''
         try:

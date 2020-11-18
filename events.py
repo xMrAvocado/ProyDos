@@ -30,11 +30,11 @@ class Eventos():
 
     def cargarProv():
         """
-        carga las provincias al iniciar el programa
+        Carga las provincias al iniciar el programa
         :return:
         """
         try:
-            prov = ['','A Coruña', 'Lugo', 'Ourense', 'Pontevedra', 'Vigo']
+            prov = ['','A Coruña', 'Lugo', 'Ourense', 'Pontevedra']
             for i in prov:
                 var.ui.cmbProv.addItem(i)
 

@@ -12,7 +12,7 @@ class DialogSalir(QtWidgets.QDialog):
         var.dlgsalir.setupUi(self)
         var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.Yes).clicked.connect(events.Eventos.Salir)
         # var.dlgsalir.btnBoxSalir.button(QtWidgets.QDialogButtonBox.No).clicked.connect(events.Eventos.closeSalir)
-        # no es neceasario no quiero que haga nada
+        # No es neceasario, no quiero que haga nada
 
 
 class DialogCalendar(QtWidgets.QDialog):
@@ -36,15 +36,15 @@ class Main(QtWidgets.QMainWindow):
         var.dlgcalendar = DialogCalendar()
 
         '''
-        colección de datos
+        COLECCIÓN DE DATOS
         '''
         var.rbtsex = (var.ui.rbtFem, var.ui.rbtMasc)
         var.chkpago = (var.ui.chkEfec, var.ui.chkTar, var.ui.chkTrans)
 
         '''
-        conexion de eventos con los objetos
-        estamos conectando el código con la interfaz gráfico
-        botones formulario cliente
+        Conexion de eventos con los objetos
+        Estamos conectando el código con la interfaz gráfico
+        Botones formulario cliente
         '''
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
         var.ui.actionSalir.triggered.connect(events.Eventos.Salir)
@@ -65,7 +65,7 @@ class Main(QtWidgets.QMainWindow):
         events.Eventos.cargarProv()
         var.ui.lblstatus.setText('Bienvenido a 2º DAM')
         '''
-        módulos conexion base datos
+        MÓDULOS CONEXIÓN BASE DE DATOS
         '''
 
         conexion.Conexion.db_connect(var.filebd)

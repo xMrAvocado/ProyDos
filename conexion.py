@@ -85,7 +85,7 @@ class Conexion():
 
     def bajaCli(dni):
         ''''
-        modulo para eliminar cliente. se llama desde fichero clientes.py
+        Módulo para eliminar cliente. Se llama desde el fichero clientes.py
         :return None
         '''
         query = QtSql.QSqlQuery()
@@ -100,7 +100,7 @@ class Conexion():
 
     def modifCli(codigo, newdata):
            ''''
-           modulo para modificar cliente. se llama desde fichero clientes.py
+           Módulo para modificar cliente. Se llama desde el fichero clientes.py
            :return None
            '''
            query = QtSql.QSqlQuery()
