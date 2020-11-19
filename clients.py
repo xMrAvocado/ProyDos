@@ -23,8 +23,8 @@ class Clientes():
                     dni  = dni.replace(dni[0],reemp_dig_ext[dni[0]])
                 return len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni)%23 ] == dig_control
 
-        except:
-            print('Error módulo validar DNI')
+        except Exception as error:
+            print('Error módulo validar DNI' % str(error))
             return None
 
     def validoDni():
@@ -181,10 +181,10 @@ class Clientes():
             print('Error cargar clientes: %s ' % str(error))
 
     def bajaCliente(self):
-        '''
+        """
         Módulos para dar de baja un cliente
-        :return:
-        '''
+        :return:"""
+
         try:
             dni = var.ui.editDni.text()
             conexion.Conexion.bajaCli(dni)
@@ -196,10 +196,10 @@ class Clientes():
 
 
     def modifCliente(self):
-        '''
+        """
         Módulos para dar de modificar datos de un cliente
         :return:
-        '''
+        """
         try:
             newdata = []
             client = [var.ui.editDni, var.ui.editApel, var.ui.editNome, var.ui.editClialta, var.ui.editDir]
@@ -216,8 +216,28 @@ class Clientes():
         except Exception as error:
             print('Error cargar clientes: %s ' % str(error))
 
+    def reloadCli():
+        """
+        Limpia datos del formulario y recarga.
+        :return: none
+        """
+        try:
+            Clientes.limpiarCli()
+            conexion.Conexion.mostrarClientes(None)
+        except Exception as error:
+            print('Error recargar clientes: %s'% str(error))
 
-
+    def buscarCli():
+        """
+        Busca un cliente a partir del DNI que escribe el usuario
+        :return:
+        """
+        try:
+            Clientes.limpiarCli()
+            dni = var.ui.editDni.text()
+            cliente = conexion.Conexion.buscaCli(dni)
+        except Exception as error:
+            print('Error buscar cliente: %s'% str(error))
 
 
 

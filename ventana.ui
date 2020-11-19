@@ -608,7 +608,7 @@
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridFormsup">
           <item row="1" column="8">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="btnReloadCli">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -832,7 +832,7 @@
            </widget>
           </item>
           <item row="1" column="7">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="btnBuscarCli">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>

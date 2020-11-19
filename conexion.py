@@ -122,6 +122,14 @@ class Conexion():
            else:
                print("Error modificar cliente: ", query.lastError().text())
 
+    def buscaCli(dni):
+        """
+        Selectun cliente a partir de su DNI
+        :return:
+        """
+        query = QtSql.QSqlQuery()
+        query.prepare('select * from clientes where dni = :dni')
+        query.bindValue(':dni', dni)
 
 
 # class Conexion():
