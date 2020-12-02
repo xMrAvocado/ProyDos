@@ -40,3 +40,17 @@ class Eventos():
 
         except Exception as error:
             print('Error: %s' % str(error))
+
+    def Backup(self):
+        try:
+            print("Hará copia de seguraidad de la BBDD")
+        except Exception as error:
+            print('Error: %s' % str(error))
+
+    def AbrirDir(self):
+        try:
+            var.filedlgabrir.setWindowTitle('Abrir Archivo')
+            var.filedlgabrir.setModal(True)
+            var.filedlgabrir.show()
+        except Exception as error:
+            print('Error abrir explorador: %s ' % str(error))

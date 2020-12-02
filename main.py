@@ -1,9 +1,10 @@
 from ventana import *
 from vensalir import *
+from PyQt5.QtPrintSupport import QPrintDialog, QPrinter
 from vencalendar import *
-from datetime import datetime
+from datetime import datetime, date
 import sys, var, events, clients, conexion
-
+import locale
 
 class DialogSalir(QtWidgets.QDialog):
     def __init__(self):
@@ -26,6 +27,13 @@ class DialogCalendar(QtWidgets.QDialog):
         var.dlgcalendar.Calendar.setSelectedDate((QtCore.QDate(anoactual, mesactual, diaactual)))
         var.dlgcalendar.Calendar.clicked.connect(clients.Clientes.cargarFecha)
 
+class FileDialogAbrir(QtWidgets.QFileDialog):
+    def __init__(self):
+        super(FileDialogAbrir, self).__init__()
+
+class PrintDialogAbrir(QPrintDialog):
+    def __init__(self):
+        super(PrintDialogAbrir, self).__init__()
 
 class Main(QtWidgets.QMainWindow):
     def __init__(self):
@@ -34,7 +42,7 @@ class Main(QtWidgets.QMainWindow):
         var.ui.setupUi(self)
         var.dlgsalir = DialogSalir()
         var.dlgcalendar = DialogCalendar()
-
+        var.dlgimprimir = PrintDialogAbrir()
         '''
         COLECCIÓN DE DATOS
         '''
@@ -48,7 +56,10 @@ class Main(QtWidgets.QMainWindow):
         '''
         var.ui.btnSalir.clicked.connect(events.Eventos.Salir)
         var.ui.actionSalir.triggered.connect(events.Eventos.Salir)
-        var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni())
+        var.ui.toolbarSair.triggered.connect(events.Eventos.Salir)
+        var.ui.toolbarBackup.triggered.connect(events.Eventos.Backup)
+        var.ui.editDni.editingFinished.connect(clients.Clientes.validoDni)
+        #var.ui.editDni.editingFinished.connect(lambda: clients.Clientes.validoDni())
         var.ui.btnCalendar.clicked.connect(clients.Clientes.abrirCalendar)
         var.ui.btnAltaCli.clicked.connect(clients.Clientes.altaCliente)
         var.ui.btnLimpiarCli.clicked.connect(clients.Clientes.limpiarCli)

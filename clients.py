@@ -207,8 +207,10 @@ class Clientes():
                 newdata.append(i.text())  # Cargamos los valores que hay en los editline
             newdata.append(var.ui.cmbProv.currentText())
             newdata.append(var.sex)
-            pagos = Clientes.selPago()
-            newdata.append(pagos)
+            var.pay = Clientes.selPago()
+            newdata.append(var.pay)
+            edad = var.ui.spinEdad.value()
+            newdata.append(edad)
             cod = var.ui.lblCodcli.text()
             conexion.Conexion.modifCli(cod, newdata)
             conexion.Conexion.mostrarClientes(self)
@@ -233,11 +235,14 @@ class Clientes():
         :return:
         """
         try:
-            Clientes.limpiarCli()
+            #Clientes.limpiarCli()
             dni = var.ui.editDni.text()
-            cliente = conexion.Conexion.buscaCli(dni)
+            conexion.Conexion.buscaCli(dni)
         except Exception as error:
             print('Error buscar cliente: %s'% str(error))
 
-
-
+    def valoresSpin():
+        try:
+            var.ui.spinEdad.setValue(16)
+        except Exception as error:
+            print('Error valores spin: %s ' % str(error))
